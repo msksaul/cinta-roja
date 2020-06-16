@@ -26,7 +26,7 @@ const NavGeneral = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+              <NavLink className="nav-link" href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
             </NavItem>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
@@ -48,7 +48,7 @@ const NavGeneral = (props) => {
           </Nav>
           <Nav className="ml-auto" navbar>
           <NavItem>
-            <NavLink href="/components/">Login</NavLink>
+            <NavLink href="/login">Login</NavLink>
           </NavItem>
           </Nav>
         </Collapse>
