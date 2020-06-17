@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter,Route, Switch} from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Navbar from './container/Navbar/Navbar';
 import AdSlide from './container/AdSlide/AdSlide';
 import Login from './container/Login/Login';
