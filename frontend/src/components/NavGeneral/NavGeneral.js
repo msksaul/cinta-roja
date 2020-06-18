@@ -7,10 +7,10 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
+  /* UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem
+  DropdownItem */
 } from 'reactstrap';
 
 const NavGeneral = (props) => {
@@ -24,7 +24,7 @@ const NavGeneral = (props) => {
         <NavbarBrand href="/">QuetzalStore</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
+          {/* <Nav className="mr-auto" navbar>
             <NavItem>
               <NavLink className="nav-link" href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
             </NavItem>
@@ -45,7 +45,7 @@ const NavGeneral = (props) => {
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
-          </Nav>
+          </Nav> */}
           <Nav className="ml-auto" navbar>
           <NavItem>
             <NavLink href="/login">Login</NavLink>
