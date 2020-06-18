@@ -1,10 +1,12 @@
+/* eslint-disable no-shadow */
+/* eslint-disable func-names */
 /* eslint-disable consistent-return */
 const mogoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const SALT_WORK_FACTOR = 10;
 
-const UsersSchema = mogoose.Schema({
+const UsersSchema = new mogoose.Schema({
   first_name: {
     type: String,
     require: true,
@@ -19,6 +21,7 @@ const UsersSchema = mogoose.Schema({
     type: String,
     require: true,
     trim: true,
+    unique: true,
   },
   password: {
     type: String,
@@ -35,7 +38,6 @@ const UsersSchema = mogoose.Schema({
   },
 });
 
-// eslint-disable-next-line func-names
 UsersSchema.pre('save', function (next) {
   const user = this;
   // only hash the password if it has been modified (or is new)
@@ -45,8 +47,6 @@ UsersSchema.pre('save', function (next) {
   bcrypt.genSalt(SALT_WORK_FACTOR, (err, salt) => {
     if (err) return next(err);
 
-    // hash the password along with our new salt
-    // eslint-disable-next-line no-shadow
     bcrypt.hash(user.password, salt, (err, hash) => {
       if (err) return next(err);
 
@@ -58,6 +58,6 @@ UsersSchema.pre('save', function (next) {
   return false;
 });
 
-const Users = mogoose.Model('Users', UsersSchema);
+const Users = mogoose.model('Users', UsersSchema);
 
 module.exports = Users;
