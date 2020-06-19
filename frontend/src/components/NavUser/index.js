@@ -1,4 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import NavGeneral from '../NavGeneral';
+import { AuthContext } from '../../contexts/AuthContext';
+import { Link } from 'react-router-dom';
 import {
   Collapse,
   Navbar,
@@ -10,14 +13,16 @@ import {
   NavbarText
 } from 'reactstrap';
 import { Badge, Button } from 'reactstrap';
-import { Link } from 'react-router-dom'
 
 const NavUser = (props) => {
+  const { isAuth, user } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
 
   return (
+    <React.Fragment>
+    {isAuth ?
     <div>
       <Navbar color="light" light expand="md">
         <NavbarBrand tag={Link} to="/">QuetzalStore</NavbarBrand>
@@ -25,7 +30,7 @@ const NavUser = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className='mr-auto' navbar>
             <NavItem>
-              <NavbarText>¡Hola Melvin!</NavbarText>
+              <NavbarText>¡Hola {user.first_name}!</NavbarText>
             </NavItem>
           </Nav>
           <Nav className="ml-auto" navbar>
@@ -34,7 +39,7 @@ const NavUser = (props) => {
             </NavItem>
             <NavItem>
             <Button color="secondary" outline>
-              Finalizar Compra <Badge color="secondary">4</Badge>
+              Finalizar Compra <Badge color="secondary">0</Badge>
             </Button>
             </NavItem>
             <NavItem>
@@ -43,12 +48,14 @@ const NavUser = (props) => {
               </svg>
             </NavItem>
             <NavItem>
-              <NavLink href="/components/">Logout</NavLink>
+              <NavLink href="/logout">Logout</NavLink>
             </NavItem>
           </Nav>
         </Collapse>
       </Navbar>
     </div>
+    : <NavGeneral/> }
+    </React.Fragment>
   );
 }
 

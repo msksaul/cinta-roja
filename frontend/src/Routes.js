@@ -9,7 +9,7 @@ import AddCaruosel from './components/AddCarousel'
 import AdminView from './components/AdminView'
 import UserView from './components/UserView'
 import CarShop from './components/CarShop'
-
+import Logout from './components/Logout'
 
 
 export default
@@ -35,5 +35,8 @@ export default
     <Route
       exact path="/carshop"
       component={ CarShop } />
+    <Route
+      exact path="/logout"
+      component={ Logout } />  
   </React.Fragment>
 ;

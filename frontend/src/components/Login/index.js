@@ -1,6 +1,32 @@
-import React from 'react'
+import React, { useState, useContext } from 'react';
+import axios from 'axios';
+import { Redirect } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthContext';
 
-const LoginUser = () => {
+const Login = () => {
+  const { setTokenInLocalStorage, isAuth, user } = useContext(AuthContext);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  console.log(user)
+  if (isAuth && user.id==='5eed18a26b5b552ad1996b06') return <Redirect to="/adminview" />
+
+  if (isAuth) return <Redirect to="/userview" />
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const jsonSend = { email, password }
+    /* console.log(jsonSend);
+    alert('Successful login'); */
+    try {
+      const axiosRes = await axios.post('http://localhost:3002/api/v1/login', jsonSend);
+      const { token } = axiosRes.data;
+      console.log(token);
+      setTokenInLocalStorage(token);
+      alert('Successful login');
+    } catch (error) {
+      alert('Error on login');
+    }
+  };
   return (
       <div class="row">
         <div class="col-md-4 mx-auto">
@@ -9,12 +35,16 @@ const LoginUser = () => {
               <h2>Inicio de Sesión</h2>
             </div>
             <div class="card-body">
-              <form action="/users/signin" method="POST">
+              <form onSubmit={handleSubmit}>
                 <div class="form-group">
-                  <input required type="email" name="email" class="form-control" placeholder="Email" autofocus/>
+                  <input 
+                  onChange={(event) => setEmail(event.target.value)}
+                  required type="email" value={email} class="form-control" placeholder="Email" autofocus/>
                 </div>
                 <div class="form-group">
-                  <input required type="password" name="password" class="form-control" placeholder="Password"/>
+                  <input 
+                  onChange={(event) => setPassword(event.target.value)}
+                  required type="password" value={password} class="form-control" placeholder="Password"/>
                 </div>
                 <div class="form-group">
                   <button type="submit" class="btn btn-primary btn-block">
@@ -29,4 +59,4 @@ const LoginUser = () => {
   )
 }
 
-export default LoginUser
+export default Login
