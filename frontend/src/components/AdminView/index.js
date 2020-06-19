@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Button, Form, FormGroup, Label, Input, FormText
+import { Col, Button, Form, FormGroup, Label, Input,
 } from 'reactstrap';
 import AdminCard from '../AdminCard'
 

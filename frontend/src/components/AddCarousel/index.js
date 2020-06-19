@@ -6,12 +6,12 @@ import {
   CarouselIndicators,
   CarouselCaption
 } from 'reactstrap';
-import logo from '../../images/pizza.jpg'
+import logo from '../../images/verd.jpg'
 
 const items = [
   {
     src:`${logo}`,
-    width:'80%',
+    width:'100%',
     aling: 'center',
     altText: 'Slide 1',
     caption: 'Agrega productos con un click',
@@ -20,7 +20,7 @@ const items = [
   },
   {
     src:`${logo}`,
-    width:'80%',
+    width:'100%',
     aling: 'center',
     altText: '',
     caption: 'Revisa tu historial de compras',
@@ -29,7 +29,7 @@ const items = [
   },
   {
     src:`${logo}`,
-    width:'80%',
+    width:'100%',
     aling: 'center',
     altText: 'Slide 3',
     caption: 'Apoya a los pequeños negocios',

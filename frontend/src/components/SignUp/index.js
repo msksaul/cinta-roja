@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-//import axios from 'axios';
+import axios from 'axios';
 import {
   Button,  
   Form,  
@@ -14,40 +14,40 @@ const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleInput = (e) => {
-    switch (e.target.name) {
+  const handleInput = (event) => {
+    switch (event.target.name) {
       case "inputFirstName":
-        setFirstName(e.target.value)
+        setFirstName(event.target.value)
         break;
       case "lastName":
-        setLastName(e.target.value)
+        setLastName(event.target.value)
         break;
       case "email":
-        setEmail(e.target.value)
+        setEmail(event.target.value)
         break;
       case "password":
-        setPassword(e.target.value)
+        setPassword(event.target.value)
         break;
       default:
         break;
     }
   }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-/*     const jsonSend = {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+     const jsonSend = {
       first_name: firstName,
       last_name: lastName,
       email,
       password,
-    } */
+    } 
     // Hacer una peticion POST al backend para registrar un usuario
-/*     try {
-      await axios.post('https://cinta-negra-backend.herokuapp.com/api/v1/register', jsonSend);
+     try {
+      await axios.post('http://localhost:3002/api/v1/register', jsonSend);
       alert('Successful signup');
     } catch (error) {
       alert('Error');
-    } */
+    }
     
   }
 
