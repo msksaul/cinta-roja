@@ -1,22 +1,26 @@
-import React from 'react';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import Navbar from './container/Navbar/Navbar';
-import AdSlide from './container/AdSlide/AdSlide';
-import Login from './container/Login/Login';
-import NewUser from './container/NewUser/NewUser';
+import React, { Fragment } from 'react';
+
+import Navbar from './components/NavGeneral'
+import Footer from './components/Footer'
+
+import { Container } from 'reactstrap';
+import {BrowserRouter as Router, Switch} from 'react-router-dom';
+import Routes from './Routes';
+
 
 function App() {
   return (
-    <React.Fragment>
-      <BrowserRouter>
-      <Navbar/>
-      <Switch>
-        <Route exact path="/" component={AdSlide}/>
-        <Route exact path="/login" component={Login}/>
-        <Route exact path="/newuser" component={NewUser}/>
-      </Switch>
-      </BrowserRouter>
-    </React.Fragment>
+    <Fragment>
+      <Router>
+        <Navbar/>
+          <Container className='mt-4'>
+            <Switch>
+              { Routes }
+            </Switch>
+          </Container>
+        <Footer/>  
+      </Router>
+    </Fragment>
   );
 }
 
