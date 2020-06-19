@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 
-import Navbar from './components/NavGeneral'
+import Navbar from './components/NavUser'
 import Footer from './components/Footer'
 
 import { Container } from 'reactstrap';

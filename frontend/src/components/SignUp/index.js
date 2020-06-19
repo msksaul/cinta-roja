@@ -35,12 +35,12 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const jsonSend = {
+/*     const jsonSend = {
       first_name: firstName,
       last_name: lastName,
       email,
       password,
-    }
+    } */
     // Hacer una peticion POST al backend para registrar un usuario
 /*     try {
       await axios.post('https://cinta-negra-backend.herokuapp.com/api/v1/register', jsonSend);

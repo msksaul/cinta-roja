@@ -10,6 +10,7 @@ import {
   NavbarText
 } from 'reactstrap';
 import { Badge, Button } from 'reactstrap';
+import { Link } from 'react-router-dom'
 
 const NavUser = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,6 +29,9 @@ const NavUser = (props) => {
             </NavItem>
           </Nav>
           <Nav className="ml-auto" navbar>
+            <NavItem>
+              <NavLink href="/components/">Historial</NavLink>
+            </NavItem>
             <NavItem>
             <Button color="secondary" outline>
               Finalizar Compra <Badge color="secondary">4</Badge>

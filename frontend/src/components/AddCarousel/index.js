@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {
   Carousel,
   CarouselItem,
-  CarouselControl,
+  // CarouselControl,
   CarouselIndicators,
   CarouselCaption
 } from 'reactstrap';
@@ -14,15 +14,17 @@ const items = [
     width:'80%',
     aling: 'center',
     altText: 'Slide 1',
-    caption: 'Slide 1',
+    caption: 'Agrega productos con un click',
+    main:'Modifica la cantidad de productos en el carrito',
     opacity:0.5,
   },
   {
     src:`${logo}`,
     width:'80%',
     aling: 'center',
-    altText: 'Slide 2',
-    caption: 'Slide 2',
+    altText: '',
+    caption: 'Revisa tu historial de compras',
+    main:'',
     opacity:0.5,
   },
   {
@@ -30,7 +32,8 @@ const items = [
     width:'80%',
     aling: 'center',
     altText: 'Slide 3',
-    caption: 'Slide 3',
+    caption: 'Apoya a los pequeños negocios',
+    main:'',
     opacity:0.5,
   }
 ];
@@ -64,9 +67,9 @@ const AddCarousel = (props) => {
         key={item.src}
       >
         <div className ="d-flex justify-content-center">
-        <img style={{opacity:'1'}} src={item.src} alt={item.altText} width={item.width} aling={item.aling} />
+        <img style={{opacity:'0.6'}} src={item.src} alt={item.altText} width={item.width} aling={item.aling} />
         </div>
-        <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
+        <CarouselCaption captionText={item.main} captionHeader={item.caption} />
       </CarouselItem>
     );
   });

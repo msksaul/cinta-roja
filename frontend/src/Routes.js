@@ -5,8 +5,11 @@ import { Route } from 'react-router-dom';
 import Signup from './components/SignUp';
 import Init from './components/Init'
 import Login from './components/Login'
-import Caruosel from './components/Carousel'
 import AddCaruosel from './components/AddCarousel'
+import AdminView from './components/AdminView'
+import UserView from './components/UserView'
+import CarShop from './components/CarShop'
+
 
 
 export default
@@ -23,5 +26,14 @@ export default
     <Route
       exact path="/carousel"
       component={ AddCaruosel } />
+    <Route
+      exact path="/adminview"
+      component={ AdminView } />
+    <Route
+      exact path="/userview"
+      component={ UserView } />
+    <Route
+      exact path="/carshop"
+      component={ CarShop } />
   </React.Fragment>
 ;

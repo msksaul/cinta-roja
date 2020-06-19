@@ -1,5 +1,5 @@
 import React from 'react';
-import { Jumbotron, Button, NavLink } from 'reactstrap';
+import { Jumbotron, Button, } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 const Init = (props) => {
