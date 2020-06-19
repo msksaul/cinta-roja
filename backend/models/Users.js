@@ -38,7 +38,6 @@ const UsersSchema = new mogoose.Schema({
     default: false,
   },
   // arreglo de productos
-  ticketTemporal: [CarritoSchema],
   history: [CarritoSchema],
 });
 

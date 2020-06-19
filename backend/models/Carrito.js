@@ -3,15 +3,37 @@ const mongoose = require('mongoose');
 const CarritoSchema = mongoose.Schema({
   // id y arreglo producto
 
-  name: {
+  // Datos Persona
+  nombre: [{
     type: String,
-  },
-  cantidad: {
+    required: true,
+    trim: true,
+  }],
+  direccion: [{
+    type: String,
+    required: true,
+    trim: true,
+  }],
+  telefono: [{
     type: Number,
-  },
-  price: {
+    required: true,
+    trim: true,
+  }],
+  nit: [{
+    type: String,
+    required: true,
+    trim: true,
+  }],
+  // Datos Productos
+  name: [{
+    type: String,
+  }],
+  cantidad: [{
     type: Number,
-  },
+  }],
+  price: [{
+    type: Number,
+  }],
 });
 
 const Carrito = mongoose.model('Carrito', CarritoSchema);

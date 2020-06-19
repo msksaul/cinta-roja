@@ -6,5 +6,6 @@ const router = express.Router();
 router.use(require('./UsersRoutes'));
 router.use(require('./AuthRoutes'));
 router.use(require('./ProductRoutes'));
+router.use(require('./CarritoRoutes'));
 
 module.exports = router;
