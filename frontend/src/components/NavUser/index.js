@@ -15,7 +15,7 @@ import {
 import { Badge, Button } from 'reactstrap';
 
 const NavUser = (props) => {
-  const { isAuth, user } = useContext(AuthContext);
+  const { isAuth, user, count } = useContext(AuthContext);
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -38,8 +38,8 @@ const NavUser = (props) => {
               <NavLink href="/components/">Historial</NavLink>
             </NavItem>
             <NavItem>
-            <Button color="secondary" outline>
-              Finalizar Compra <Badge color="secondary">0</Badge>
+            <Button tag={Link} to="/carshop" color="secondary" outline>
+              Finalizar Compra <Badge color="secondary">{count}</Badge>
             </Button>
             </NavItem>
             <NavItem>
