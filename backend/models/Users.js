@@ -3,6 +3,7 @@
 /* eslint-disable consistent-return */
 const mogoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const { CarritoSchema } = require('./Carrito');
 
 const SALT_WORK_FACTOR = 10;
 
@@ -36,6 +37,9 @@ const UsersSchema = new mogoose.Schema({
     type: Boolean,
     default: false,
   },
+  // arreglo de productos
+  ticketTemporal: [CarritoSchema],
+  history: [CarritoSchema],
 });
 
 UsersSchema.pre('save', function (next) {
