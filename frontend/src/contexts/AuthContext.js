@@ -5,6 +5,7 @@ export const AuthContext = createContext();
 const AuthContextProvider = (props) => {  
   const [isAuth, setIsAuth] = useState(false);
   const [user, setUser] = useState({});
+  const [count, setCount] = useState(0);
 
   const getTokenInLocalStorage = () => {
     return localStorage.getItem('token');
@@ -36,6 +37,8 @@ const AuthContextProvider = (props) => {
     <AuthContext.Provider value={{
       user,
       isAuth,
+      count,
+      setCount,
       setIsAuth,
       getTokenInLocalStorage,
       setTokenInLocalStorage,

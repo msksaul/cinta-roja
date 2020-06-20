@@ -7,7 +7,6 @@ const Login = () => {
   const { setTokenInLocalStorage, isAuth, user } = useContext(AuthContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  console.log(user)
   if (isAuth && user.id==='5eed18a26b5b552ad1996b06') return <Redirect to="/adminview" />
 
   if (isAuth) return <Redirect to="/userview" />
@@ -20,7 +19,6 @@ const Login = () => {
     try {
       const axiosRes = await axios.post('http://localhost:3002/api/v1/login', jsonSend);
       const { token } = axiosRes.data;
-      console.log(token);
       setTokenInLocalStorage(token);
       alert('Successful login');
     } catch (error) {
